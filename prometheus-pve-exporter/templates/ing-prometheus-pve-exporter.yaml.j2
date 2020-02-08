@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-pve-exporter
+  namespace: {{ prometheus_pve_exporter_namespace }}
+  labels:
+    app: prometheus-pve-exporter
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: {{ prometheus_pve_exporte_ingress_target }}
+spec:
+  rules:
+    - host: {{ prometheus_pve_exporte_ingress_url }}
+      http:
+        paths:
+          - path: {{ prometheus_pve_exporte_ingress_path }}
+            backend:
+              serviceName: prometheus-pve-exporter
+              servicePort: 80

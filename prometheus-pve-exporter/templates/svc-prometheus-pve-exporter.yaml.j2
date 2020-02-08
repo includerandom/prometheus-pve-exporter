@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: prometheus-pve-exporter
+  name: prometheus-pve-exporter
+  namespace: {{ prometheus_pve_exporter_namespace }}
+spec:
+  ports:
+  - name: http-metrics
+    port: 80
+    targetPort: 9221
+  selector:
+    app: prometheus-pve-exporter

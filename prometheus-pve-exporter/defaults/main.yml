@@ -1,0 +1,10 @@
+---
+prometheus_pve_exporter_namespace: "monitoring"
+prometheus_pve_exporter_image_repo: "repo.lab.example.com:5000/h3po/prometheus-pve-exporter"
+prometheus_pve_exporter_image_tag: "latest"
+prometheus_pve_exporter_user: "user@ldap.example.com"
+prometheus_pve_exporter_verify_ssl: false
+prometheus_pve_exporter_password: "password"
+prometheus_pve_exporte_ingress_url: "prometheus-pve-exporter.{{ prometheus_pve_exporter_namespace }}.{{ cluster_name }}"
+prometheus_pve_exporte_ingress_target: "/pve?target=pve.example.com"
+prometheus_pve_exporte_ingress_path: "/metrics"

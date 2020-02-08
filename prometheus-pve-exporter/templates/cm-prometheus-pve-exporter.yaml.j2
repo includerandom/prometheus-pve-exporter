@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-pve-exporter-config
+  namespace: {{ prometheus_pve_exporter_namespace }}
+  labels:
+    k8s-app: prometheus-pve-exporter
+data:
+  pve.yml: |-
+    default:
+      user: {{ prometheus_pve_exporter_user }}
+      password: {{ prometheus_pve_exporter_password }}
+      verify_ssl: {{ prometheus_pve_exporter_verify_ssl }}
